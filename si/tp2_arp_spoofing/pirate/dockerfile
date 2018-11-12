@@ -1,0 +1,21 @@
+FROM fedora:29
+
+RUN dnf install iputils net-tools -y
+RUN dnf install traceroute -y
+RUN dnf install dsniff -y
+
+ARG IP_MACHINE_1
+ARG IP_MACHINE_2
+ARG CMD_PIRATE
+ARG LOG_FILE
+ARG SCRIPT_FILE
+
+
+ENV IP_MACHINE_1=${IP_MACHINE_1}
+ENV IP_MACHINE_2=${IP_MACHINE_2}
+ENV CMD=${CMD_PIRATE}
+ENV LOG_FILE=${LOG_FILE}
+
+COPY ${SCRIPT_FILE} /sbin
+
+CMD ["vi"]

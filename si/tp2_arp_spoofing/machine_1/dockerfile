@@ -1,0 +1,17 @@
+FROM fedora:29
+
+RUN dnf install iputils net-tools -y
+RUN dnf install traceroute -y
+
+ARG IP_MACHINE_2
+ARG CMD_MACHINE_1
+ARG LOG_FILE
+ARG SCRIPT_FILE
+
+ENV IP_MACHINE_2=${IP_MACHINE_2}
+ENV CMD=${CMD_MACHINE_1}
+ENV LOG_FILE=${LOG_FILE}
+
+COPY ${SCRIPT_FILE} /sbin
+
+CMD [ "vi" ]

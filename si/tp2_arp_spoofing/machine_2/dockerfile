@@ -1,0 +1,8 @@
+FROM fedora:29
+
+RUN dnf install iputils net-tools -y
+
+ARG IP_MACHINE_1
+ENV IP_MACHINE_1=${IP_MACHINE_1}
+
+CMD ["vi"]
